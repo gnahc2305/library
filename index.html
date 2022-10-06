@@ -14,15 +14,45 @@
 
     <div class="header">
         Library
-        <button type="button">New Book</button>
+        <button type="button" id="myBtn">New Book</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Add a new Book:</h2>
+            </div>
+
+            <div class="model-body">
+                <form action="" id="book-form">
+                    <label for="book" style="margin-top: 20px;">Book:</label>
+                    <input type="text" name="book" id="bookName"> <br>
+
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="authorName"> <br>
+
+                    <label for="length">Length (pages):</label>
+                    <input type="number" name="length" id="lengthBook"> <br>
+                
+                    <label for="status">Status:</label>
+                    <input type="text" name="status" id="statusBook">
+            </div>
+                
+            <div class="model-footer">
+                <button type="submit">Submit Form</button>
+                </form> 
+            </div>
+
+        </div>
     </div>
 
     <div class="container">
-        <div class="card1">
-            <h2>Book: The Hobbit</h2>
-            <h3>Author: J.R.R Tolkien</h3>
-            <h3>Length: 295 pages</h3>
-            <h3>status: not read yet</h3>
+        <div class="card">
+            <p><span>Book:</span> The Hobbit</p>
+            <p><span>Author:</span> J.R.R Tolkien</p>
+            <p><span>Length:</span> 295 pages</p>
+            <p><span>status:</span> not read yet</p>
             <button type="button" class="removeBtn">Remove Book</button>
             <button type="button" class="statusBtn">Change Read Status</button>
         </div>
