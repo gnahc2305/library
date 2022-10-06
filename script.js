@@ -7,6 +7,7 @@ const length_form = document.getElementById('lengthBook');
 const status_form = document.getElementById('statusBook');
 
 const form_btn = document.getElementById('formBtn');
+const container_div = document.querySelector('.container');
 
 
 // change status of card
@@ -34,6 +35,8 @@ function addBookToLibrary() {
     const userBook = new Book(bookName, bookAuthor, bookLength, bookStatus);
     myLibrary.push(userBook);
     console.table(myLibrary);
+
+    createCard();
 }
 
 function Book(book, author, length, status) {
@@ -43,6 +46,12 @@ function Book(book, author, length, status) {
     this.status = status
 }
 
-Book.prototype.info = function() {
-    return `${this.book} by ${this.author}, ${this.length}, ${this.status}`
+// Book.prototype.info = function() {
+//     return `${this.book} by ${this.author}, ${this.length}, ${this.status}`
+// }
+
+function createCard() {
+    let card = document.createElement('div');
+    card.classList.add('card');
+    container_div.appendChild(card);
 }

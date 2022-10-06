@@ -40,7 +40,11 @@ body {
 .container {
     display: grid;
     margin: 30px 10%;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
 }
 
 .card {
@@ -75,6 +79,29 @@ body {
     background-color: rgb(49, 165, 49);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -87,6 +114,7 @@ body {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
 
 /* Modal Content/Box */
 .modal-content {
