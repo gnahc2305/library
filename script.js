@@ -15,11 +15,11 @@ const container_div = document.querySelector('.container');
 
 // change status of card
 status_btn.addEventListener('click', function() {
-    if (status_span.textContent === ' read') {
-        status_span.textContent = ' not read yet';
+    if (status_span.textContent === ' Read') {
+        status_span.textContent = ' Unread';
         status_span.style.color = '#F06363';
     } else {
-        status_span.textContent = ' read';
+        status_span.textContent = ' Read';
         status_span.style.color = '#31A531';
     }
 });
@@ -30,8 +30,15 @@ remove_btn.addEventListener('click', function() {
 
 
 let myLibrary = [
-
+    // {
+    //     book: 'hola'
+    // }
 ];
+
+// for (let i = 0; i < myLibrary.length; i++) {
+//     console.log(myLibrary[i].book);
+// }
+
 
 function addBookToLibrary() {
     let bookName = book_form.value;
@@ -41,9 +48,12 @@ function addBookToLibrary() {
 
     const userBook = new Book(bookName, bookAuthor, bookLength, bookStatus);
     myLibrary.push(userBook);
-    console.table(myLibrary);
-
     createCard();
+
+    // for (let i = 0; i < myLibrary.length; i++) {
+    //     console.log(myLibrary[i].book);
+    // }
+    // console.log(myLibrary);
 }
 
 function Book(book, author, length, status) {
@@ -62,45 +72,30 @@ function createCard() {
     card.classList.add('card');
     container_div.appendChild(card);
 
+    createParagraph(card, 'Book: ', myLibrary[myLibrary.length - 1].book);
+    createParagraph(card, 'Author: ', myLibrary[myLibrary.length - 1].author);
+    createParagraph(card, 'Length: ', myLibrary[myLibrary.length - 1].length);
+    createParagraph(card, 'Status: ', myLibrary[myLibrary.length - 1].status);
 
-    let paragraph1 = document.createElement('p');
-    card.appendChild(paragraph1);
-    let span1 = document.createElement('span');
-    span1.textContent = 'Book: ';
-    paragraph1.appendChild(span1);
-
-    let paragraph2 = document.createElement('p');
-    card.appendChild(paragraph2);
-    let span2 = document.createElement('span');
-    span2.textContent = 'Author: ';
-    paragraph2.appendChild(span2);
-
-    let paragraph3 = document.createElement('p');
-    card.appendChild(paragraph3);
-    let span3 = document.createElement('span');
-    span3.textContent = 'Length: ';
-    paragraph3.appendChild(span3);
-
-    let paragraph4 = document.createElement('p');
-    card.appendChild(paragraph4);
-    let span4 = document.createElement('span');
-    span4.textContent = 'Status: ';
-    paragraph4.appendChild(span4);
-
+    
     let removeButton = document.createElement('button');
     removeButton.classList.add('removeBtn');
     removeButton.textContent = 'Remove Book';
     card.appendChild(removeButton);
-
+    
     let statusButton = document.createElement('button');
     statusButton.classList.add('statusBtn');
     statusButton.textContent = 'Change Read Status';
     card.appendChild(statusButton);
-
+    
     removeButton.addEventListener('click', function(e) {
         card.parentNode.removeChild(card);
     })
 
+    // console.table(myLibrary.length);
+    // console.log(myLibrary[myLibrary.length - 1].book);
+
+    
     // statusButton.addEventListener('click', function() {
     //     if (status_span.textContent === ' read') {
     //         status_span.textContent = ' not read yet';
@@ -112,12 +107,12 @@ function createCard() {
     // })
 }
 
-// function createParagraph(text) {
+function createParagraph(div, text, value) {
 
-//     let p = document.createElement('p');
-//     card.appendChild(p);
+    let paragraph = document.createElement('p');
+    div.appendChild(paragraph);
 
-//     let sp = document.createElement('span');
-//     sp.textContent = text;
-//     card.appendChild(sp);
-// }
+    let span = document.createElement('span');
+    span.textContent = text + value; 
+    paragraph.appendChild(span);
+}

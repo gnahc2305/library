@@ -130,7 +130,7 @@ body {
     text-align: center;
 }
 
-label,input{
+label,input,select {
     /* margin-top: 10px; */
     display:flex;
     flex-direction:column;
@@ -139,9 +139,13 @@ label,input{
     font-size: 20px;
 }
   
-input {
+input, select {
     margin-top: 5px;
     border-radius: 10px;
+}
+
+select {
+    width: 15rem;
 }
 
 .model-footer button {
