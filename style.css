@@ -22,6 +22,14 @@ body {
     font-weight: bold;
 }
 
+#achang {
+    font-size: 20px;
+    color: white;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+}
+
 .header button {
     position: fixed;
     top: 10;
@@ -176,4 +184,8 @@ select {
 .modal-header {
     margin-top: -20px;
     border-bottom: 1px solid grey;
+}
+
+#resetBtn {
+    background-color: #F06363
 }

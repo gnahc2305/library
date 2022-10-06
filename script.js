@@ -30,14 +30,7 @@ remove_btn.addEventListener('click', function() {
 
 
 let myLibrary = [
-    // {
-    //     book: 'hola'
-    // }
 ];
-
-// for (let i = 0; i < myLibrary.length; i++) {
-//     console.log(myLibrary[i].book);
-// }
 
 
 function addBookToLibrary() {
@@ -50,10 +43,8 @@ function addBookToLibrary() {
     myLibrary.push(userBook);
     createCard();
 
-    // for (let i = 0; i < myLibrary.length; i++) {
-    //     console.log(myLibrary[i].book);
-    // }
-    // console.log(myLibrary);
+    // close modal when submitting form
+    // document.getElementById('myModal').style.display = "none";
 }
 
 function Book(book, author, length, status) {
@@ -74,13 +65,14 @@ function createCard() {
 
     createParagraph(card, 'Book: ', myLibrary[myLibrary.length - 1].book);
     createParagraph(card, 'Author: ', myLibrary[myLibrary.length - 1].author);
-    createParagraph(card, 'Length: ', myLibrary[myLibrary.length - 1].length);
+    createParagraph(card, 'Length: ', `${myLibrary[myLibrary.length - 1].length} pages`);
     createParagraph(card, 'Status: ', myLibrary[myLibrary.length - 1].status);
 
     
     let removeButton = document.createElement('button');
     removeButton.classList.add('removeBtn');
     removeButton.textContent = 'Remove Book';
+    removeButton.style.margin = '5px';
     card.appendChild(removeButton);
     
     let statusButton = document.createElement('button');
@@ -91,20 +83,16 @@ function createCard() {
     removeButton.addEventListener('click', function(e) {
         card.parentNode.removeChild(card);
     })
-
-    // console.table(myLibrary.length);
-    // console.log(myLibrary[myLibrary.length - 1].book);
-
     
-    // statusButton.addEventListener('click', function() {
-    //     if (status_span.textContent === ' read') {
-    //         status_span.textContent = ' not read yet';
-    //         status_span.style.color = '#F06363';
-    //     } else {
-    //         status_span.textContent = ' read';
-    //         status_span.style.color = '#31A531';
-    //     } 
-    // })
+    statusButton.addEventListener('click', function() {
+        if (myLibrary[myLibrary.length - 1].status === 'Read') {
+            document.querySelector('.coloredSpan').style.color = 'red';
+            console.log('hola')
+        } else {
+            span.style.color = '#F06363';
+
+        } 
+    })
 }
 
 function createParagraph(div, text, value) {
