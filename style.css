@@ -75,16 +75,22 @@ body {
     height: 40px;
     border-radius: 10px;
     border: none;
+    margin-top: 4rem;
+    width: 70px;
     color: white;
-    margin-top: 1rem;
 }
 
 .removeBtn {
     background-color: #f06363;
+    color: white;
 }
 
 .statusBtn {
-    background-color: rgb(49, 165, 49);
+    background-color: #31A531;
+}
+
+.statusBtn2 {
+    background-color: #EC9C29;
 }
 
 
