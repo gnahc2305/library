@@ -1,35 +1,35 @@
-let modal = document.getElementById('myModal');
-let btn = document.getElementById("myBtn");
-let span = document.getElementsByClassName("close")[0];
+const status_btn = document.querySelector('.statusBtn');
+const status_span = document.querySelector('.statusSpan')
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+const book_form = document.getElementById('bookName');
+const author_form = document.getElementById('authorName');
+const length_form = document.getElementById('lengthBook');
+const status_form = document.getElementById('statusBook');
 
-span.onclick = function() {
-    modal.style.display = "none";
-}
+const form_btn = document.getElementById('formBtn');
 
-// open and close modal
+
+// change status of card
+status_btn.addEventListener('click', function() {
+    if (status_span.textContent === ' read') {
+        status_span.textContent = ' not read yet';
+        status_span.style.color = '#F06363';
+    } else {
+        status_span.textContent = ' read';
+        status_span.style.color = '#31A531';
+    }
+});
 
 
 let myLibrary = [
-    // {
-    //     book: 'The Hobbit',
-    //     author: 'J.R.R Tolkien',
-    //     length: '295 pages',
-    //     status: 'not read yet',
-    // },
-    // {
 
-    // }
 ];
 
 function addBookToLibrary() {
-    bookName = prompt('Name of the book:');
-    bookAuthor = prompt('Author of the book:');
-    bookLength = prompt('Length of the book:');
-    bookStatus = prompt('Have you read the book?');
+    let bookName = book_form.value;
+    let bookAuthor = author_form.value;
+    let bookLength = length_form.value;
+    let bookStatus = status_form.value;
 
     const userBook = new Book(bookName, bookAuthor, bookLength, bookStatus);
     myLibrary.push(userBook);
@@ -46,12 +46,3 @@ function Book(book, author, length, status) {
 Book.prototype.info = function() {
     return `${this.book} by ${this.author}, ${this.length}, ${this.status}`
 }
-  
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295 pages', 'not read yet' )
-
-
-// myLibrary.push(theHobbit);
-
-// console.table(myLibrary);
-
-// console.log(theHobbit.info())
