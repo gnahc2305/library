@@ -46,12 +46,16 @@ function addBookToLibrary() {
     document.getElementById('myModal').style.display = "none";
 }
 
-function Book(book, author, length, status) {
-    this.book = book
-    this.author = author
-    this.length = length
-    this.status = status
+class Book {
+    constructor(book, author, length, status) {
+        this.book = book;
+        this.author = author;
+        this.length = length;
+        this.status = status;
+    }
 }
+
+
 
 // Book.prototype.info = function() {
 //     return `${this.book} by ${this.author}, ${this.length}, ${this.status}`
