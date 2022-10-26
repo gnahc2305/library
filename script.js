@@ -31,6 +31,17 @@ remove_btn.addEventListener('click', function() {
 
 let myLibrary = [];
 
+form_btn.addEventListener('click', () => {
+    if (document.getElementById("bookName").value === '' || document.getElementById('authorName') === '') {
+        document.getElementById('bookLabel').textContent = 'Book: (Required)';
+        document.getElementById('bookLabel').style.color = 'red';
+        document.getElementById('authorLabel').textContent = 'Author: (Required)';
+        document.getElementById('authorLabel').style.color = 'red';
+    } else {
+        addBookToLibrary();
+    }
+})
+
 
 function addBookToLibrary() {
     let bookName = book_form.value;
